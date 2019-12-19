@@ -1,13 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class Cell extends Component {
-    render() {
-        return (
-            <div>
-                
-            </div>
-        )
-    }
-}
+const Cell = ({type}) => (
+    <>
+    cell
+    </>
+)
 
 export default Cell
