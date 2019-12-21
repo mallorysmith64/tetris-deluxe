@@ -2,17 +2,16 @@ import styled from 'styled-components'
 import space from '../../images/space-background.png'
 
 export const StyledTetrisWrapper = styled.div`
-    width=100vw;
-    height=100vh;
     background:url(${space}) #000;
     background-size:cover;
     overflow:hidden;
+    height:35em;
 `;
 
 export const StyledTetris = styled.div`
     display:flex;
     align-items:flex-start;
-    padding: 18px 18px 18px 450px;
+    padding: 0px 18px 18px 450px;
     margin:0 auto;
     max-width:900px;
 
