@@ -10,16 +10,16 @@ export const useStage = (player, resetPlayer) => {
 			setRowsCleared(0);
 
 			const sweepRows = (newStage) =>
-				newStage.reduce((ack, row) => {
+				newStage.reduce((arr, row) => {
 					if (row.findIndex((cell) => cell[0] === 0) === -1) {
 						setRowsCleared((prev) => prev + 1);
-						ack.unshift(
+						arr.unshift(
 							new Array(newStage[0].length).fill([ 0, 'clear' ])
 						);
-						return ack;
+						return arr;
 					}
-					ack.push(row);
-					return ack;
+					arr.push(row);
+					return arr;
 				}, []);
 
 			const updateStage = (prevStage) => {
