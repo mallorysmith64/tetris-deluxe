@@ -11,25 +11,23 @@ body {
   display:flex;
   justify-content: center;
   color:teal;
-  font-size:2em;
+  font-size:1.5em;
   background-color: rgb(4, 5, 7);
 }
 
 .title {
   font-family: sans-serif;
   text-transform: uppercase;
-  letter-spacing: 4px;
-  animation: animate 5s infinite;
-  background-position: 30% 62%;
-  border-radius: 0.4em;
-  background-size: 60em;
+  letter-spacing: 0.15em;
+  animation: animate 30s infinite;
 }
 
 @keyframes animate {
   0% {
-    color: red;
+    color:red;
   }
+  
   100% {
-    color: orange;
+    color:orange;
   }
 }
