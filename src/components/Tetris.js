@@ -11,6 +11,8 @@ import Display from './Display';
 import StartButton from './StartButton';
 import Controls from './Controls';
 
+import Audio from '../audioPlayer/Audio'
+
 const Tetris = () => {
 	const [ dropTime, setDropTime ] = useState(null);
 	const [ gameOver, setGameOver ] = useState(false);
@@ -142,6 +144,9 @@ const Tetris = () => {
 							<StartButton
 								className="start-button"
 								callback={startGame}
+								mediaQuery={mediaQuery}
+							/>
+							<Audio
 								mediaQuery={mediaQuery}
 							/>
 						</div>

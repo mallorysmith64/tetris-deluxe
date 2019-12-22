@@ -31,3 +31,11 @@ body {
     color:orange;
   }
 }
+
+.rhap_volume-button,
+.rhap_play-pause-button,
+.rhap_repeat-button,
+.rhap_forward-button,
+.rhap_rewind-button {
+  color:red !important;
+}
