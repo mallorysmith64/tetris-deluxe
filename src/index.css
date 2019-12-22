@@ -19,27 +19,47 @@ body {
   font-family: sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.15em;
+}
+
+
+.rhap_volume-button,
+.rhap_repeat-button,
+.rhap_forward-button,
+.rhap_rewind-button {
+  display:none;
+}
+
+.rhap_play-pause-button {
+  color: red !important;
+  padding: 10px;
+  min-height: 30px;
+  width: 100%;
+  border-radius: 20px;
+  border: 0.1em solid;
+  background: #333;
+  font-family: Pixel, Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+}
+
+svg {
+  height:2em;
+  width:2em;
+}
+
+.title,
+button {
   animation: animate 30s infinite;
+
 }
 
 @keyframes animate {
   0% {
-    color:red;
-  }
-  
+      color:red;
+      }
+        
   100% {
     color:orange;
   }
-}
-
-/* .rhap_volume-button,
-.rhap_play-pause-button,
-.rhap_repeat-button,
-.rhap_forward-button,
-.rhap_rewind-button {
-  color:red !important;
-} */
-
-.audio-player {
-  display:none;
 }
