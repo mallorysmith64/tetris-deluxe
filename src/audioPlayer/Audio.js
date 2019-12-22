@@ -6,6 +6,7 @@ const Audio = () => (
   <section className="audio-player">
     <AudioPlayer
       autoPlay controls
+      loop={true}
       src={Tetris}
       onPlay={e => console.log("onPlay")}
       alt="original tetris theme song"
