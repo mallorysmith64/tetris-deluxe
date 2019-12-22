@@ -1,6 +1,6 @@
 import React from 'react'
 import AudioPlayer from "react-h5-audio-player";
-import Tetris from './Tetris theme song [10 hours]-9Fv5cuYZFC0.mp4'
+import Tetris from './Tetris_Theme_Song.webm'
 
 const Audio = () => (
   <section className="audio-player">
