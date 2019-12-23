@@ -19,9 +19,7 @@ const Tetris = () => {
 
 	const [ player, updatePlayerPos, resetPlayer, playerRotate ] = usePlayer();
 	const [ stage, setStage, rowsCleared ] = useStage(player, resetPlayer);
-	const [ score, setScore, rows, setRows, level, setLevel ] = useGameStatus(
-		rowsCleared
-	);
+	const [ score, setScore, rows, setRows, level, setLevel ] = useGameStatus(rowsCleared);
 
 	const mediaQuery =
 		'media only screen and (not(pointer)) and (not(hover)), (max-width: 600px), (max-device-width: 1024px)';

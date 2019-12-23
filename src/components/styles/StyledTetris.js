@@ -1,8 +1,6 @@
 import styled from 'styled-components'
-import space from '../../images/space-background.png'
 
 export const StyledTetrisWrapper = styled.div`
-    // background:url(${space}) #000;
     background:url("https://ak9.picdn.net/shutterstock/videos/18681329/thumb/1.jpg");
     background-size:cover;
     overflow:hidden;

@@ -1,17 +1,8 @@
 import React from 'react'
-import AudioPlayer from "react-h5-audio-player";
 import Tetris from './Tetris_Theme_Song.webm'
 
 const Audio = () => (
-  <section className="audio-player">
-    <AudioPlayer
-      autoPlay controls
-      loop={true}
-      src={Tetris}
-      onPlay={e => console.log("onPlay")}
-      alt="original tetris theme song"
-    />
-  </section>
+  <audio src={Tetris} autoplay="true"/>
   );
 
   export default Audio
