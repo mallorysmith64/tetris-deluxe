@@ -2,54 +2,6 @@ body {
   margin: 0;
 }
 
-@font-face {
-  font-family: 'Pixel';
-  src: url('fonts/Pixel-LCD-7.woff') format('woff');
-}
-
-.title-container {
-  display:flex;
-  justify-content: center;
-  color:teal;
-  font-size:1.5em;
-}
-
-.title {
-  font-family: sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-}
-
-
-.rhap_volume-button,
-.rhap_repeat-button,
-.rhap_forward-button,
-.rhap_current-time,
-.rhap_total-time,
-.rhap_rewind-button {
-  display:none;
-}
-
-.rhap_play-pause-button {
-  color: red !important;
-  padding: 10px;
-  min-height: 30px;
-  width: 100%;
-  border-radius: 20px;
-  border: 0.1em solid;
-  background: #333;
-  font-family: Pixel, Arial, Helvetica, sans-serif;
-  font-size: 1rem;
-  outline: none;
-  cursor: pointer;
-}
-
-svg {
-  height:2em;
-  width:2em;
-}
-
-.title,
 button {
   animation: animate 30s infinite;
 
