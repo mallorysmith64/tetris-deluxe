@@ -1,8 +1,8 @@
 import React from 'react'
-import Tetris from './Tetris_Theme_Song.webm'
+import ThemeSong from './Tetris_Theme_Song.webm'
 
 const Audio = () => (
-  <audio src={Tetris} autoplay="true" loop/>
+  <audio src={ThemeSong} autoplay="true" loop/>
   );
 
   export default Audio
