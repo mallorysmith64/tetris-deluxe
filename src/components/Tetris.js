@@ -144,7 +144,7 @@ const Tetris = () => {
 								callback={startGame}
 								mediaQuery={mediaQuery}
 							/>
-							<Audio/>
+							<Audio playing={!gameOver && dropTime !== null} />
 						</div>
 					)}
 				</aside>

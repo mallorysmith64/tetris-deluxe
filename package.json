@@ -1,6 +1,20 @@
 {
-  "private": true,
   "name": "tetris-deluxe",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Welcome to Tetris Deluxe! :smiley: </br>",
+  "homepage": "https://tetris-deluxe-mallorysmith64.netlify.com",
+  "bugs": {
+    "url": "https://github.com/mallorysmith64/tetris-deluxe/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mallorysmith64/tetris-deluxe.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -10,6 +24,20 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "postdeploy": "echo 'Your site was deployed to https://tetris-deluxe-mallorysmith64.netlify.com'"
+  },
+  "dependencies": {
+    "json": "^10.0.0",
+    "netlify-cli": "^23.12.3",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-h5-audio-player": "^2.0.1",
+    "react-scripts": "^3.3.0",
+    "styled-components": "^4.4.1"
+  },
+  "devDependencies": {
+    "prettier": "^1.19.1",
+    "stylelint": "^12.0.0",
+    "stylelint-config-standard": "^19.0.0"
   },
   "browserslist": [
     ">0.2%",
@@ -23,19 +51,5 @@
     "semi": false,
     "singleQuote": true,
     "useTabs": false
-  },
-  "devDependencies": {
-    "prettier": "^1.19.1",
-    "stylelint": "^12.0.0",
-    "stylelint-config-standard": "^19.0.0"
-  },
-  "dependencies": {
-    "json": "^10.0.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-h5-audio-player": "^2.0.1",
-    "react-scripts": "^3.3.0",
-    "styled-components": "^4.4.1"
-  },
-  "homepage": "https://tetris-deluxe-mallorysmith64.netlify.com"
+  }
 }
