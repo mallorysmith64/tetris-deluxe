@@ -5,13 +5,23 @@ const Audio = ({ playing }) => {
   const audioRef = useRef(null);
 
   useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
     if (playing) {
-      audioRef.current.play().catch(error => {
-        console.log("Audio playback failed:", error);
-      });
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          // AbortError fires when play() is interrupted by a pause() call
+          // right after it (e.g. rapid state changes) - safe to ignore.
+          if (error.name !== 'AbortError') {
+            console.log("Audio playback failed:", error);
+          }
+        });
+      }
     } else {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0; // Restart track when stopped
+      audio.pause();
+      audio.currentTime = 0; // restart track for the next game
     }
   }, [playing]);
 

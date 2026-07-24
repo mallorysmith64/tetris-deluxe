@@ -16,6 +16,7 @@ import Audio from '../audioPlayer/Audio'
 const Tetris = () => {
 	const [ dropTime, setDropTime ] = useState(null);
 	const [ gameOver, setGameOver ] = useState(false);
+	const [ isPlaying, setIsPlaying ] = useState(false);
 
 	const [ player, updatePlayerPos, resetPlayer, playerRotate ] = usePlayer();
 	const [ stage, setStage, rowsCleared ] = useStage(player, resetPlayer);
@@ -39,6 +40,7 @@ const Tetris = () => {
 		setScore(0);
 		setRows(0);
 		setLevel(1);
+		setIsPlaying(true);
 	};
 
 	const drop = () => {
@@ -55,6 +57,7 @@ const Tetris = () => {
 			if (player.pos.y < 1) {
 				setGameOver(true);
 				setDropTime(null);
+				setIsPlaying(false);
 			}
 			updatePlayerPos({ x: 0, y: 0, collided: true });
 		}
@@ -144,7 +147,7 @@ const Tetris = () => {
 								callback={startGame}
 								mediaQuery={mediaQuery}
 							/>
-							<Audio playing={!gameOver && dropTime !== null} />
+							<Audio playing={isPlaying && !gameOver} />
 						</div>
 					)}
 				</aside>
