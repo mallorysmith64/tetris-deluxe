@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { createStage, checkCollision } from '../gameHelpers';
 import { StyledTetrisWrapper, StyledTetris } from './styles/StyledTetris';
 import { useInterval } from '../hooks/useInterval';
@@ -17,6 +17,7 @@ const Tetris = () => {
 	const [ dropTime, setDropTime ] = useState(null);
 	const [ gameOver, setGameOver ] = useState(false);
 	const [ isPlaying, setIsPlaying ] = useState(false);
+	const gameAreaRef = useRef(null);
 
 	const [ player, updatePlayerPos, resetPlayer, playerRotate ] = usePlayer();
 	const [ stage, setStage, rowsCleared ] = useStage(player, resetPlayer);
@@ -41,6 +42,11 @@ const Tetris = () => {
 		setRows(0);
 		setLevel(1);
 		setIsPlaying(true);
+		// Move focus to the game area so keydown/keyup handlers fire
+		// immediately instead of waiting for a manual click into the board.
+		if (gameAreaRef.current) {
+			gameAreaRef.current.focus();
+		}
 	};
 
 	const drop = () => {
@@ -108,6 +114,7 @@ const Tetris = () => {
 
 	return (
 		<StyledTetrisWrapper
+			ref={gameAreaRef}
 			role="button"
 			tabIndex="0"
 			onKeyDown={(e) => move(e)}
