@@ -9,19 +9,20 @@ import { useGameStatus } from '../hooks/useGameStatus';
 import Stage from './Stage';
 import Display from './Display';
 import StartButton from './StartButton';
+import { StyledPauseButton } from './styles/StyledPauseButton'
 import Controls from './Controls';
 
 import Audio from '../audioPlayer/Audio'
 
 const Tetris = () => {
-	const [ dropTime, setDropTime ] = useState(null);
-	const [ gameOver, setGameOver ] = useState(false);
-	const [ isPlaying, setIsPlaying ] = useState(false);
+	const [dropTime, setDropTime] = useState(null);
+	const [gameOver, setGameOver] = useState(false);
+	const [isPlaying, setIsPlaying] = useState(false);
 	const gameAreaRef = useRef(null);
 
-	const [ player, updatePlayerPos, resetPlayer, playerRotate ] = usePlayer();
-	const [ stage, setStage, rowsCleared ] = useStage(player, resetPlayer);
-	const [ score, setScore, rows, setRows, level, setLevel ] = useGameStatus(rowsCleared);
+	const [player, updatePlayerPos, resetPlayer, playerRotate] = usePlayer();
+	const [stage, setStage, rowsCleared] = useStage(player, resetPlayer);
+	const [score, setScore, rows, setRows, level, setLevel] = useGameStatus(rowsCleared);
 
 	const mediaQuery =
 		'media only screen and (not(pointer)) and (not(hover)), (max-width: 600px), (max-device-width: 1024px)';
@@ -154,6 +155,7 @@ const Tetris = () => {
 								callback={startGame}
 								mediaQuery={mediaQuery}
 							/>
+							
 							<Audio playing={isPlaying && !gameOver} />
 						</div>
 					)}
@@ -165,3 +167,10 @@ const Tetris = () => {
 };
 
 export default Tetris;
+
+{/* <StyledPauseButton
+								isPaused={gameIsPaused}
+								onClick={handlePause}
+							>
+								{gameIsPaused ? 'Resume' : 'Pause'}
+							</StyledPauseButton> */}

@@ -13,10 +13,9 @@
   },
   "license": "ISC",
   "author": "",
-  "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
     "build": "react-scripts build",
     "predeploy": "react-scripts build",
     "deploy": "netlify deploy --prod --dir=build",
@@ -29,10 +28,9 @@
     "json": "^10.0.0",
     "netlify-cli": "^23.13.0",
     "nvm": "^0.0.4",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-h5-audio-player": "^2.0.1",
-    "react-scripts": "^3.3.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-scripts": "^5.0.1",
     "styled-components": "^4.4.1"
   },
   "devDependencies": {
