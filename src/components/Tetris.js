@@ -9,7 +9,7 @@ import { useGameStatus } from '../hooks/useGameStatus';
 import Stage from './Stage';
 import Display from './Display';
 import StartButton from './StartButton';
-import { StyledPauseButton } from './styles/StyledPauseButton'
+import PauseButton from './PauseButton';
 import Controls from './Controls';
 
 import Audio from '../audioPlayer/Audio'
@@ -18,6 +18,7 @@ const Tetris = () => {
 	const [dropTime, setDropTime] = useState(null);
 	const [gameOver, setGameOver] = useState(false);
 	const [isPlaying, setIsPlaying] = useState(false);
+	const [isPaused, setIsPaused] = useState(false);
 	const gameAreaRef = useRef(null);
 
 	const [player, updatePlayerPos, resetPlayer, playerRotate] = usePlayer();
@@ -43,10 +44,25 @@ const Tetris = () => {
 		setRows(0);
 		setLevel(1);
 		setIsPlaying(true);
+		setIsPaused(false);
 		// Move focus to the game area so keydown/keyup handlers fire
 		// immediately instead of waiting for a manual click into the board.
 		if (gameAreaRef.current) {
 			gameAreaRef.current.focus();
+		}
+	};
+
+	const handlePause = () => {
+		if (!gameOver && isPlaying) {
+			if (!isPaused) {
+				// Pause the game
+				setIsPaused(true);
+				setDropTime(null);
+			} else {
+				// Resume the game
+				setIsPaused(false);
+				setDropTime(1000 / (level + 1) + 200);
+			}
 		}
 	};
 
@@ -71,7 +87,7 @@ const Tetris = () => {
 	};
 
 	const keyUp = ({ keyCode }) => {
-		if (!gameOver) {
+		if (!gameOver && !isPaused) {
 			if (keyCode === 40) {
 				setDropTime(1000 / (level + 1) + 200);
 			}
@@ -84,7 +100,7 @@ const Tetris = () => {
 	};
 
 	const move = ({ keyCode }) => {
-		if (!gameOver) {
+		if (!gameOver && !isPaused) {
 			if (keyCode === 37) {
 				movePlayer(-1);
 			} else if (keyCode === 39) {
@@ -98,6 +114,8 @@ const Tetris = () => {
 	};
 
 	const handleClick = (action) => {
+		if (isPaused) return; // Don't allow clicks while paused
+
 		const actions = {
 			drop: { keyCode: 40 },
 			left: { keyCode: 37 },
@@ -155,8 +173,14 @@ const Tetris = () => {
 								callback={startGame}
 								mediaQuery={mediaQuery}
 							/>
-							
-							<Audio playing={isPlaying && !gameOver} />
+							{isPlaying && (
+								<PauseButton
+									isPaused={isPaused}
+									callback={handlePause}
+									mediaQuery={mediaQuery}
+								/>
+							)}
+							<Audio playing={isPlaying && !gameOver && !isPaused} />
 						</div>
 					)}
 				</aside>
@@ -167,10 +191,3 @@ const Tetris = () => {
 };
 
 export default Tetris;
-
-{/* <StyledPauseButton
-								isPaused={gameIsPaused}
-								onClick={handlePause}
-							>
-								{gameIsPaused ? 'Resume' : 'Pause'}
-							</StyledPauseButton> */}
